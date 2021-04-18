@@ -1,0 +1,26 @@
+<h3>Thông tin tài khoản</h3>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="updateData()">
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="name">name</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="name" nz-input name="name" type="name" id="name">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="email">Email</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="email" nz-input name="email" type="email" id="email">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="phone">Số điện thoại</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="phone" nz-input name="phone"  id="phone">
+        </nz-form-control>
+    </nz-form-item>
+    <div nz-row nzJustify="end" nzAlign="middle">
+        <div nz-col >
+            <button [nzLoading]="loading" nzType="primary"  [disabled]="form.invalid" nz-button >Submit</button>
+        </div>
+    </div>
+</form>

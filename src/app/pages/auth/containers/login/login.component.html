@@ -1,0 +1,29 @@
+<app-auth-header title="Đăng nhập" subTitle="Điền thông tin đăng nhập"></app-auth-header>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="login()">
+    <nz-form-item >
+        <nz-form-label nzRequired="true"  nzFor="name">Username</nz-form-label>
+        <nz-form-control  [nzSpan]="24">
+            <input formControlName="name" nz-input name="name" type="name" id="name">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="password">Password</nz-form-label>
+        <nz-form-control  [nzSpan]="24">
+            <input formControlName="password" nz-input name="password" type="password" id="password">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control >
+            <label [formControl]="rememberCtrl" nz-checkbox>Ghi nhớ đăng nhập</label>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <a [routerLink]="['..', 'registration']">Chưa có tài khoản? Đăng ký ngay!</a>
+
+    </nz-form-item>
+    <div nz-row nzJustify="center" nzAlign="middle">
+        <div nz-col >
+            <button nzType="primary" nzShape="round" [disabled]="form.invalid" nz-button >Submit</button>
+        </div>
+    </div>
+</form>

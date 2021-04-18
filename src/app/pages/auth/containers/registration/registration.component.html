@@ -1,0 +1,47 @@
+<app-auth-header title="Đăng ký" subTitle="Điền thông tin đăng ký"></app-auth-header>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="register($event)">
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="name">Username</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="name" nz-input name="name" type="name" id="name">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="password">Password</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="password" nz-input name="password" type="password" id="password">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label  nzRequired="true"  nzFor="confirmPassword">Xác nhận password</nz-form-label>
+        <nz-form-control nzHasFeedback [nzSpan]="24" [nzErrorTip]="errorPasswordTpl">
+            <input formControlName="confirmPassword" nz-input name="confirmPassword" type="password" id="confirmPassword">
+        </nz-form-control>
+        <ng-template #errorPasswordTpl let-control>
+            <div *ngIf="control.hasError('passwordNotMatched')">Mật khẩu không trùng khớp</div>
+            <div *ngIf="control.hasError('required')">Mật khẩu không thể rỗng</div>
+        </ng-template>
+
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="email">Email</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="email" nz-input name="email" type="email" id="email">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired="true" nzFor="phone">Số điện thoại</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="Dữ liệu không hợp lệ">
+            <input formControlName="phone" nz-input name="phone"  id="phone">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <a [routerLink]="['..', 'login']">Đã có tài khoản? Đăng nhập ngay!</a>
+
+    </nz-form-item>
+    <div nz-row nzJustify="center" nzAlign="middle">
+        <div nz-col >
+            <button [nzLoading]="loading" nzType="primary" nzShape="round" [disabled]="form.invalid" nz-button >Submit</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<nz-layout class="layout">
+    <nz-sider nzWidth="200px" nzTheme="light">
+        <ul nz-menu nzMode="inline" class="sider-menu">
+            <li nz-menu-item nzSelected>Thông tin tài khoản</li>
+            <li (click)="logout()" nz-menu-item >Đăng xuất</li>
+
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-content class="content">
+            <router-outlet></router-outlet>
+        </nz-content>
+
+    </nz-layout>
+</nz-layout>
