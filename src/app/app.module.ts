@@ -13,7 +13,6 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { StoreModule } from '@ngrx/store';
 import { CoreModule } from './core/core.module';
 import { AuthService } from './core/auth.service';
 
@@ -33,7 +32,6 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule,
-    StoreModule.forRoot({}, {})
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
