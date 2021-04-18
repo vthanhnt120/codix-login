@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { combineLatest } from 'rxjs';
 import { ApiService } from 'src/app/core/api.service';
 import { AuthService } from 'src/app/core/auth.service';
@@ -33,7 +34,7 @@ export class RegistrationComponent implements OnInit {
       Validators.required,
     ]),
   });
-  constructor(public api: ApiService, private auth: AuthService) {
+  constructor(public api: ApiService, private auth: AuthService, private notification: NzNotificationService) {
     combineLatest([
       this.passwordCtrl.valueChanges,
       this.confirmPasswordCtrl.valueChanges,
@@ -59,7 +60,8 @@ export class RegistrationComponent implements OnInit {
   }
   register(e: AccountModel & { password: string; }) {
     this.api.registration(e).pipe(withLoading(this, 'loading')).subscribe(() => {
-      this.auth.gotoLogin()
+      this.auth.gotoLogin();
+      this.notification.success('Đăng ký thành công', '')
     });
   }
 
